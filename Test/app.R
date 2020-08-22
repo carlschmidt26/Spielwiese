@@ -59,6 +59,7 @@ server <- function(input, output, session) {
                               value =  sample(1:50, 1))
             print("----")
         }
+        input$bins
         
     }) %>% debounce(2000)
     
@@ -68,8 +69,8 @@ server <- function(input, output, session) {
         #print(address(update_by_user))
         input$number
     }) %>% debounce_if(update_by_user, 2000, 0)
-    
-    
+
+
     observeEvent({event()},{
                  print(glue::glue('ObsereEvent at {format(Sys.time(), "%Y-%m-%d %H:%M:%OS6")}'))
     })
